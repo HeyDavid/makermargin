@@ -1,0 +1,93 @@
+---
+import "../styles/global.css";
+
+const beehiivEmbedUrl = "https://subscribe-forms.beehiiv.com/46acb75b-af23-4254-a0c6-5ec460076c9a";
+const etsyUrl = "https://www.etsy.com/listing/4496371225";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Maker Margin makes honest fee math for Etsy sellers. See real take-home in 30 seconds with 2026 US rates baked in."
+    />
+    <meta name="theme-color" content="#F4ECDD" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Maker Margin" />
+    <meta property="og:description" content="Honest fee math for Etsy sellers." />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="https://makermargin.co" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon_64.png" />
+    <title>Maker Margin</title>
+  </head>
+  <body class="min-h-screen bg-[#F4ECDD] text-[#1C1A17] antialiased">
+    <main class="mx-auto flex min-h-screen w-full max-w-4xl flex-col px-6">
+      <section class="flex flex-col items-center py-24 text-center sm:py-28">
+        <img
+          src="/monogram.svg"
+          alt="Maker Margin monogram"
+          class="h-[120px] w-[120px]"
+          width="120"
+          height="120"
+        />
+        <h1 class="mt-10 font-serif text-6xl leading-none text-[#1C1A17] sm:text-7xl">
+          Maker Margin
+        </h1>
+        <p class="mt-5 text-xl text-[#5f574d] sm:text-2xl">
+          Honest fee math for Etsy sellers.
+        </p>
+      </section>
+
+      <section class="mx-auto w-full max-w-2xl pb-20 text-center">
+        <div class="space-y-5 text-lg leading-8 text-[#312d27]">
+          <p>Plain-language tools for Etsy sellers.</p>
+          <p>
+            The fee calculator is on Etsy now: real take-home in 30 seconds, 2026 US rates baked in,
+            $7 once, you own it forever.
+          </p>
+          <p>
+            Subscribe to know when the next tool ships, get quarterly rate updates whenever Etsy changes
+            something, and hear from the person who actually built this.
+          </p>
+        </div>
+        <a
+          href={etsyUrl}
+          target="_blank"
+          rel="noreferrer"
+          class="mt-10 inline-flex min-h-12 items-center justify-center rounded-full bg-[#A23E0E] px-7 py-3 text-base font-semibold text-[#FFF8EF] shadow-sm transition hover:bg-[#862f08] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A23E0E] focus-visible:ring-offset-4 focus-visible:ring-offset-[#F4ECDD]"
+        >
+          See the fee calculator on Etsy
+        </a>
+      </section>
+
+      <section class="mx-auto w-full max-w-xl pb-20 text-center" aria-labelledby="subscribe-heading">
+        <h2 id="subscribe-heading" class="font-serif text-4xl text-[#1C1A17]">
+          Stay in the loop
+        </h2>
+        <div class="mt-8 overflow-hidden rounded-2xl border border-[#d7c8b1] bg-[#fbf4e9] shadow-[0_18px_60px_rgba(28,26,23,0.08)]">
+          <iframe
+            src={beehiivEmbedUrl}
+            data-test-id="beehiiv-embed"
+            title="Subscribe to Maker Margin"
+            class="block h-[340px] w-full border-0 bg-[#fbf4e9]"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="px-6 pb-10 text-center text-sm text-[#74695d]">
+      <p>
+        © 2026 Maker Margin · Made in Miami ·
+        <a class="underline decoration-[#A23E0E]/40 underline-offset-4 hover:text-[#A23E0E]" href="/privacy">
+          Privacy policy
+        </a>
+      </p>
+    </footer>
+  </body>
+</html>
