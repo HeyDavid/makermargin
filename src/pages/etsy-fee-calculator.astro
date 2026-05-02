@@ -1,0 +1,273 @@
+---
+import "../styles/global.css";
+
+const homepageFormId = "46acb75b-af23-4254-a0c6-5ec460076c9a";
+const etsyUrl = "https://www.etsy.com/listing/4496371225";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Free Etsy fee calculator for US sellers. See what Etsy takes, what you keep, and the price you need to break even."
+    />
+    <meta name="theme-color" content="#F4ECDD" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Maker Margin - Etsy fee calculator" />
+    <meta
+      property="og:description"
+      content="See what Etsy takes, what you keep, and the price you need to break even."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="https://makermargin.co/etsy-fee-calculator/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon_64.png" />
+    <title>Maker Margin - Etsy fee calculator</title>
+  </head>
+  <body class="min-h-screen bg-[#F4ECDD] text-[#1C1A17] antialiased selection:bg-[#A23E0E]/15">
+    <header class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 pt-6 sm:px-6">
+      <a href="/" class="inline-flex items-center gap-3" aria-label="Maker Margin home">
+        <img src="/monogram.svg" alt="" class="h-9 w-9" width="36" height="36" aria-hidden="true" />
+        <span class="font-serif text-xl tracking-tight">Maker Margin</span>
+      </a>
+      <a
+        href={etsyUrl}
+        target="_blank"
+        rel="noreferrer"
+        class="hidden min-h-10 items-center justify-center rounded-full border border-[#1C1A17]/20 px-4 text-sm font-semibold text-[#1C1A17] transition hover:border-[#1C1A17] sm:inline-flex"
+      >
+        Get the xlsx
+      </a>
+    </header>
+
+    <main class="mx-auto w-full max-w-6xl px-5 pb-16 pt-14 sm:px-6 sm:pb-20 sm:pt-20">
+      <section class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+        <div>
+          <p class="font-serif text-xs uppercase tracking-[0.22em] text-[#A23E0E]">Free tool</p>
+          <h1 class="mt-4 max-w-3xl font-serif text-[2.8rem] leading-[1.02] tracking-[-0.01em] text-[#1C1A17] sm:text-[4.75rem]">
+            Etsy fee calculator
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-[#5f574d] sm:text-xl">
+            Type in a price, shipping, and materials. See what Etsy takes, what you keep, and the item price you need to break even.
+          </p>
+        </div>
+
+        <aside class="rounded-lg border border-[#d7c8b1] bg-[#fbf4e9] p-5 shadow-[0_18px_60px_rgba(28,26,23,0.07)] sm:p-6">
+          <p class="font-serif text-2xl text-[#1C1A17]">Want the reusable sheet?</p>
+          <p class="mt-3 text-sm leading-6 text-[#5f574d]">
+            The Etsy download includes the reusable xlsx version for Excel, Numbers, and Sheets.
+          </p>
+          <a
+            href={etsyUrl}
+            target="_blank"
+            rel="noreferrer"
+            class="mt-5 inline-flex min-h-11 items-center justify-center rounded-full bg-[#1C1A17] px-5 text-sm font-semibold text-[#FFF8EF] transition hover:bg-[#3a342c] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1C1A17] focus-visible:ring-offset-4 focus-visible:ring-offset-[#fbf4e9]"
+          >
+            Get it on Etsy
+          </a>
+        </aside>
+      </section>
+
+      <section class="mt-12 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]" aria-label="Etsy fee calculator">
+        <form class="rounded-lg border border-[#d7c8b1] bg-[#fbf4e9] p-5 shadow-[0_18px_60px_rgba(28,26,23,0.07)] sm:p-6" id="calculator-form">
+          <h2 class="font-serif text-2xl">Inputs</h2>
+
+          <div class="mt-6 grid gap-5">
+            <label class="block">
+              <span class="text-sm font-semibold text-[#312d27]">Item price</span>
+              <span class="mt-2 flex min-h-12 items-center rounded-md border border-[#d7c8b1] bg-[#fff8ef] px-3 focus-within:border-[#1C1A17]">
+                <span class="mr-2 text-[#74695d]">$</span>
+                <input class="w-full bg-transparent text-base text-[#1C1A17] outline-none" id="price" type="number" min="0" step="0.01" value="35.00" inputmode="decimal" />
+              </span>
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-semibold text-[#312d27]">Shipping charged to buyer</span>
+              <span class="mt-2 flex min-h-12 items-center rounded-md border border-[#d7c8b1] bg-[#fff8ef] px-3 focus-within:border-[#1C1A17]">
+                <span class="mr-2 text-[#74695d]">$</span>
+                <input class="w-full bg-transparent text-base text-[#1C1A17] outline-none" id="shipping-charged" type="number" min="0" step="0.01" value="6.00" inputmode="decimal" />
+              </span>
+              <span class="mt-1 block text-xs leading-5 text-[#74695d]">Use 0 if you offer free shipping.</span>
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-semibold text-[#312d27]">Your actual shipping cost</span>
+              <span class="mt-2 flex min-h-12 items-center rounded-md border border-[#d7c8b1] bg-[#fff8ef] px-3 focus-within:border-[#1C1A17]">
+                <span class="mr-2 text-[#74695d]">$</span>
+                <input class="w-full bg-transparent text-base text-[#1C1A17] outline-none" id="shipping-cost" type="number" min="0" step="0.01" value="5.50" inputmode="decimal" />
+              </span>
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-semibold text-[#312d27]">Materials and packaging</span>
+              <span class="mt-2 flex min-h-12 items-center rounded-md border border-[#d7c8b1] bg-[#fff8ef] px-3 focus-within:border-[#1C1A17]">
+                <span class="mr-2 text-[#74695d]">$</span>
+                <input class="w-full bg-transparent text-base text-[#1C1A17] outline-none" id="materials" type="number" min="0" step="0.01" value="8.00" inputmode="decimal" />
+              </span>
+            </label>
+
+            <div class="rounded-md border border-[#d7c8b1] bg-[#fff8ef] p-4">
+              <label class="flex items-start gap-3">
+                <input class="mt-1 h-4 w-4 accent-[#A23E0E]" id="offsite-ads" type="checkbox" />
+                <span>
+                  <span class="block text-sm font-semibold text-[#312d27]">Include Offsite Ads attribution</span>
+                  <span class="mt-1 block text-xs leading-5 text-[#74695d]">This is a per-order fee only when Etsy attributes the sale to Offsite Ads.</span>
+                </span>
+              </label>
+              <label class="mt-4 hidden items-center gap-3" id="offsite-rate-wrap">
+                <span class="text-sm font-semibold text-[#312d27]">Rate</span>
+                <input class="h-10 w-24 rounded-md border border-[#d7c8b1] bg-[#fbf4e9] px-3 text-base outline-none focus:border-[#1C1A17]" id="offsite-rate" type="number" min="0" max="100" step="0.5" value="15" inputmode="decimal" />
+                <span class="text-sm text-[#74695d]">%</span>
+              </label>
+            </div>
+          </div>
+        </form>
+
+        <section class="rounded-lg border border-[#1C1A17] bg-[#1C1A17] p-5 text-[#FFF8EF] shadow-[0_22px_70px_rgba(28,26,23,0.18)] sm:p-6" aria-labelledby="results-heading">
+          <div class="flex flex-col gap-3 border-b border-white/15 pb-5 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p class="font-serif text-xs uppercase tracking-[0.22em] text-[#E6A15B]">Results</p>
+              <h2 id="results-heading" class="mt-2 font-serif text-3xl">What you keep</h2>
+            </div>
+            <div class="text-left sm:text-right">
+              <p class="text-xs uppercase tracking-[0.18em] text-[#cfc5b8]">Net profit</p>
+              <p class="mt-1 font-serif text-5xl italic text-[#3ddc84]" id="r-net">$0.00</p>
+            </div>
+          </div>
+
+          <div class="mt-5 grid gap-3">
+            <div class="flex items-baseline justify-between gap-4 border-b border-white/10 py-3">
+              <span class="text-sm text-[#cfc5b8]">Buyer pays</span>
+              <strong class="text-base font-semibold" id="r-buyer-pays">$0.00</strong>
+            </div>
+            <div class="flex items-baseline justify-between gap-4 border-b border-white/10 py-3">
+              <span class="text-sm text-[#cfc5b8]">Listing fee</span>
+              <strong class="text-base font-semibold text-[#ffd28a]" id="r-listing">$0.20</strong>
+            </div>
+            <div class="flex items-baseline justify-between gap-4 border-b border-white/10 py-3">
+              <span class="text-sm text-[#cfc5b8]">Transaction fee, 6.5%</span>
+              <strong class="text-base font-semibold text-[#ffd28a]" id="r-transaction">$0.00</strong>
+            </div>
+            <div class="flex items-baseline justify-between gap-4 border-b border-white/10 py-3">
+              <span class="text-sm text-[#cfc5b8]">Payment processing, 3% + $0.25</span>
+              <strong class="text-base font-semibold text-[#ffd28a]" id="r-payment">$0.00</strong>
+            </div>
+            <div class="hidden items-baseline justify-between gap-4 border-b border-white/10 py-3" id="r-offsite-row">
+              <span class="text-sm text-[#cfc5b8]">Offsite Ads fee</span>
+              <strong class="text-base font-semibold text-[#ffd28a]" id="r-offsite">$0.00</strong>
+            </div>
+            <div class="flex items-baseline justify-between gap-4 border-b border-white/10 py-3">
+              <span class="text-sm text-[#cfc5b8]">Total Etsy fees</span>
+              <strong class="text-base font-semibold" id="r-total-fees">$0.00</strong>
+            </div>
+            <div class="flex items-baseline justify-between gap-4 border-b border-white/10 py-3">
+              <span class="text-sm text-[#cfc5b8]">Shipping + materials</span>
+              <strong class="text-base font-semibold" id="r-your-costs">$0.00</strong>
+            </div>
+            <div class="flex items-baseline justify-between gap-4 py-3">
+              <span class="text-sm text-[#cfc5b8]">Margin</span>
+              <strong class="font-serif text-3xl italic text-[#3ddc84]" id="r-margin">0%</strong>
+            </div>
+          </div>
+
+          <div class="mt-5 rounded-md border border-[#A23E0E] bg-[#A23E0E]/20 p-4 text-sm leading-6 text-[#F4F2EC]">
+            To break even at this shipping and materials cost, your item price needs to be at least
+            <strong class="text-[#FFF8EF]" id="r-breakeven">$0.00</strong>.
+          </div>
+        </section>
+      </section>
+
+      <section class="mx-auto mt-14 max-w-2xl rounded-lg border border-[#d7c8b1] bg-[#fbf4e9] p-5 text-center shadow-[0_18px_60px_rgba(28,26,23,0.07)] sm:p-8" aria-labelledby="updates-heading">
+        <p class="font-serif text-xs uppercase tracking-[0.22em] text-[#A23E0E]">Rate notes</p>
+        <h2 id="updates-heading" class="mt-3 font-serif text-3xl">Get updates when the math changes.</h2>
+        <p class="mx-auto mt-3 max-w-lg text-base leading-7 text-[#5f574d]">
+          Same Maker Margin list as the homepage. New tools, Etsy fee notes, and launch pricing when Maker Operator is ready.
+        </p>
+        <div class="mx-auto mt-6 max-w-md">
+          <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form={homepageFormId}></script>
+        </div>
+      </section>
+
+      <p class="mx-auto mt-8 max-w-3xl text-center text-xs leading-5 text-[#74695d]">
+        Estimates only. Fee assumptions follow the standalone Maker Margin calculator and exclude regulatory operating fees, Etsy Plus, VAT, and other account-specific charges.
+      </p>
+    </main>
+
+    <script is:inline>
+      (function () {
+        const ids = ["price", "shipping-charged", "shipping-cost", "materials", "offsite-rate"];
+        const inputs = ids.map((id) => document.getElementById(id)).filter(Boolean);
+        const offsiteToggle = document.getElementById("offsite-ads");
+        const offsiteWrap = document.getElementById("offsite-rate-wrap");
+        const offsiteRow = document.getElementById("r-offsite-row");
+
+        const fmt = (n) => {
+          if (!Number.isFinite(n)) return "$0.00";
+          const sign = n < 0 ? "-" : "";
+          return sign + "$" + Math.abs(n).toFixed(2);
+        };
+        const pct = (n) => (Number.isFinite(n) ? n.toFixed(1) + "%" : "0%");
+
+        function getNumber(id) {
+          const value = parseFloat(document.getElementById(id)?.value || "0");
+          return Number.isFinite(value) ? value : 0;
+        }
+
+        function calc() {
+          const price = getNumber("price");
+          const shipCharged = getNumber("shipping-charged");
+          const shipCost = getNumber("shipping-cost");
+          const materials = getNumber("materials");
+          const offsiteOn = Boolean(offsiteToggle?.checked);
+          const offsiteRate = getNumber("offsite-rate") / 100;
+
+          const buyerPays = price + shipCharged;
+          const listingFee = 0.2;
+          const transactionFee = buyerPays * 0.065;
+          const paymentFee = buyerPays * 0.03 + 0.25;
+          const offsiteFee = offsiteOn ? buyerPays * offsiteRate : 0;
+          const totalFees = listingFee + transactionFee + paymentFee + offsiteFee;
+          const yourCosts = shipCost + materials;
+          const net = buyerPays - totalFees - yourCosts;
+          const margin = buyerPays > 0 ? (net / buyerPays) * 100 : 0;
+          const totalRatePct = 0.065 + 0.03 + (offsiteOn ? offsiteRate : 0);
+          const breakeven = (0.45 + shipCost + materials) / (1 - totalRatePct) - shipCharged;
+
+          document.getElementById("r-listing").textContent = fmt(listingFee);
+          document.getElementById("r-transaction").textContent = fmt(transactionFee);
+          document.getElementById("r-payment").textContent = fmt(paymentFee);
+          document.getElementById("r-offsite").textContent = fmt(offsiteFee);
+          document.getElementById("r-total-fees").textContent = fmt(totalFees);
+          document.getElementById("r-buyer-pays").textContent = fmt(buyerPays);
+          document.getElementById("r-your-costs").textContent = fmt(yourCosts);
+          document.getElementById("r-breakeven").textContent = fmt(Math.max(0, breakeven));
+
+          const netEl = document.getElementById("r-net");
+          const marginEl = document.getElementById("r-margin");
+          netEl.textContent = fmt(net);
+          marginEl.textContent = pct(margin);
+          netEl.classList.toggle("text-[#3ddc84]", net >= 0);
+          netEl.classList.toggle("text-[#ff8a8a]", net < 0);
+          marginEl.classList.toggle("text-[#3ddc84]", margin >= 0);
+          marginEl.classList.toggle("text-[#ff8a8a]", margin < 0);
+        }
+
+        inputs.forEach((el) => el.addEventListener("input", calc));
+        offsiteToggle?.addEventListener("change", () => {
+          offsiteWrap?.classList.toggle("hidden", !offsiteToggle.checked);
+          offsiteWrap?.classList.toggle("flex", offsiteToggle.checked);
+          offsiteRow?.classList.toggle("hidden", !offsiteToggle.checked);
+          offsiteRow?.classList.toggle("flex", offsiteToggle.checked);
+          calc();
+        });
+
+        calc();
+      })();
+    </script>
+    <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+  </body>
+</html>

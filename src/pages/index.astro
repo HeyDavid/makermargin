@@ -1,8 +1,9 @@
 ---
 import "../styles/global.css";
 
-const beehiivEmbedUrl = "https://subscribe-forms.beehiiv.com/46acb75b-af23-4254-a0c6-5ec460076c9a";
+const beehiivFormUrl = "https://subscribe-forms.beehiiv.com/46acb75b-af23-4254-a0c6-5ec460076c9a";
 const etsyUrl = "https://www.etsy.com/listing/4496371225";
+const calculatorUrl = "/etsy-fee-calculator/";
 ---
 
 <!doctype html>
@@ -12,82 +13,194 @@ const etsyUrl = "https://www.etsy.com/listing/4496371225";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Maker Margin makes honest fee math for Etsy sellers. See real take-home in 30 seconds with 2026 US rates baked in."
+      content="Plain-language tools for Etsy sellers. Honest math, instant download, no subscriptions."
     />
     <meta name="theme-color" content="#F4ECDD" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Maker Margin" />
-    <meta property="og:description" content="Honest fee math for Etsy sellers." />
+    <meta property="og:description" content="Plain-language tools for Etsy sellers." />
     <meta property="og:image" content="/og-image.png" />
     <meta property="og:url" content="https://makermargin.co" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon_32.png" />
     <link rel="icon" type="image/png" sizes="64x64" href="/favicon_64.png" />
-    <title>Maker Margin</title>
+    <title>Maker Margin - Plain-language tools for Etsy sellers</title>
   </head>
-  <body class="min-h-screen bg-[#F4ECDD] text-[#1C1A17] antialiased">
-    <main class="mx-auto flex min-h-screen w-full max-w-4xl flex-col px-6">
-      <section class="flex flex-col items-center py-24 text-center sm:py-28">
+  <body class="min-h-screen bg-[#F4ECDD] text-[#1C1A17] antialiased selection:bg-[#A23E0E]/15">
+    <header class="mx-auto w-full max-w-3xl px-6 pt-8">
+      <a href="/" class="inline-flex items-center gap-3" aria-label="Maker Margin home">
         <img
           src="/monogram.svg"
-          alt="Maker Margin monogram"
-          class="h-[120px] w-[120px]"
-          width="120"
-          height="120"
+          alt=""
+          class="h-9 w-9"
+          width="36"
+          height="36"
+          aria-hidden="true"
         />
-        <h1 class="mt-10 font-serif text-6xl leading-none text-[#1C1A17] sm:text-7xl">
-          Maker Margin
+        <span class="font-serif text-xl tracking-tight text-[#1C1A17]">Maker Margin</span>
+      </a>
+    </header>
+
+    <main class="mx-auto w-full max-w-3xl px-6">
+      <!-- Hero -->
+      <section class="pt-24 pb-16 text-center sm:pt-28">
+        <h1 class="font-serif text-[2.75rem] leading-[1.05] tracking-[-0.01em] text-[#1C1A17] sm:text-[4rem]">
+          Plain-language tools<br class="hidden sm:block" /> for Etsy sellers.
         </h1>
-        <p class="mt-5 text-xl text-[#5f574d] sm:text-2xl">
-          Honest fee math for Etsy sellers.
+        <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-[#5f574d] sm:text-xl">
+          Honest math, instant download, no subscriptions.
         </p>
       </section>
 
-      <section class="mx-auto w-full max-w-2xl pb-20 text-center">
-        <div class="space-y-5 text-lg leading-8 text-[#312d27]">
-          <p>Plain-language tools for Etsy sellers.</p>
-          <p>
-            The fee calculator is on Etsy now: real take-home in 30 seconds, 2026 US rates baked in,
-            $7 once, you own it forever.
-          </p>
-          <p>
-            Subscribe to know when the next tool ships, get quarterly rate updates whenever Etsy changes
-            something, and hear from the person who actually built this.
+      <!-- Subscribe -->
+      <section class="pb-24" aria-labelledby="subscribe-heading">
+        <div class="mx-auto max-w-md text-center">
+          <h2 id="subscribe-heading" class="font-serif text-2xl text-[#1C1A17]">
+            Get updates
+          </h2>
+          <p class="mt-3 text-base leading-7 text-[#5f574d]">
+            First access to new tools, plus rate notes when Etsy changes anything.
           </p>
         </div>
-        <a
-          href={etsyUrl}
-          target="_blank"
-          rel="noreferrer"
-          class="mt-10 inline-flex min-h-12 items-center justify-center rounded-full bg-[#A23E0E] px-7 py-3 text-base font-semibold text-[#FFF8EF] shadow-sm transition hover:bg-[#862f08] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A23E0E] focus-visible:ring-offset-4 focus-visible:ring-offset-[#F4ECDD]"
+
+        <form
+          id="subscribe-form"
+          action={beehiivFormUrl}
+          method="post"
+          class="mx-auto mt-8 flex w-full max-w-md flex-col gap-3 sm:flex-row"
         >
-          See the fee calculator on Etsy
-        </a>
+          <label class="sr-only" for="subscribe-email">Email address</label>
+          <input
+            id="subscribe-email"
+            type="email"
+            name="email"
+            required
+            placeholder="you@email.com"
+            autocomplete="email"
+            class="min-h-12 flex-1 rounded-full bg-[#fbf4e9] px-5 text-base text-[#1C1A17] placeholder-[#9b8f7f] outline-none ring-1 ring-inset ring-[#d7c8b1] transition focus:ring-2 focus:ring-[#1C1A17]"
+          />
+          <button
+            type="submit"
+            class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#1C1A17] px-7 text-sm font-semibold text-[#FFF8EF] transition hover:bg-[#3a342c] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1C1A17] focus-visible:ring-offset-4 focus-visible:ring-offset-[#F4ECDD]"
+          >
+            Subscribe
+          </button>
+        </form>
+
+        <p
+          id="subscribe-thanks"
+          hidden
+          class="mx-auto mt-6 max-w-md text-center text-base text-[#1C1A17]"
+        >
+          Thanks. You're in. Check your inbox in a minute.
+        </p>
       </section>
 
-      <section class="mx-auto w-full max-w-xl pb-20 text-center" aria-labelledby="subscribe-heading">
-        <h2 id="subscribe-heading" class="font-serif text-4xl text-[#1C1A17]">
-          Stay in the loop
-        </h2>
-        <div class="mt-8 overflow-hidden rounded-2xl border border-[#d7c8b1] bg-[#fbf4e9] shadow-[0_18px_60px_rgba(28,26,23,0.08)]">
-          <iframe
-            src={beehiivEmbedUrl}
-            data-test-id="beehiiv-embed"
-            title="Subscribe to Maker Margin"
-            class="block h-[340px] w-full border-0 bg-[#fbf4e9]"
-            loading="lazy"
-          ></iframe>
+      <!-- Tools -->
+      <section class="pb-28" aria-labelledby="tools-heading">
+        <div class="text-center">
+          <p class="font-serif text-xs uppercase tracking-[0.22em] text-[#A23E0E]">Tools</p>
+          <h2 id="tools-heading" class="mt-3 font-serif text-2xl text-[#1C1A17] sm:text-3xl">
+            What's in the lineup
+          </h2>
+        </div>
+
+        <div class="mt-14 space-y-14 sm:mt-16 sm:space-y-16">
+          <!-- 1. Available now -->
+          <article class="mx-auto max-w-2xl">
+            <div class="flex items-center gap-2.5 text-[0.7rem] uppercase tracking-[0.18em] text-[#5f574d]">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-[#3B7A3D]" aria-hidden="true"></span>
+              Available now
+            </div>
+            <h3 class="mt-4 font-serif text-2xl tracking-tight text-[#1C1A17] sm:text-[1.75rem]">
+              Etsy fee calculator
+            </h3>
+            <p class="mt-4 text-base leading-7 text-[#312d27]">
+              Use the free web calculator for a quick pricing check, or grab the xlsx when you want the reusable three-sheet version for Excel, Numbers, and Sheets.
+            </p>
+            <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+              <a
+                href={calculatorUrl}
+                class="inline-flex min-h-11 items-center justify-center rounded-full bg-[#1C1A17] px-6 py-2.5 text-sm font-semibold text-[#FFF8EF] transition hover:bg-[#3a342c] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1C1A17] focus-visible:ring-offset-4 focus-visible:ring-offset-[#F4ECDD]"
+              >
+                Use free calculator
+              </a>
+              <a
+                href={etsyUrl}
+                target="_blank"
+                rel="noreferrer"
+                class="inline-flex min-h-11 items-center justify-center rounded-full border border-[#1C1A17]/25 px-6 py-2.5 text-sm font-semibold text-[#1C1A17] transition hover:border-[#1C1A17] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1C1A17] focus-visible:ring-offset-4 focus-visible:ring-offset-[#F4ECDD]"
+              >
+                Get the xlsx on Etsy
+              </a>
+              <span class="text-sm text-[#74695d]">$7 once - instant download - own it forever</span>
+            </div>
+          </article>
+
+          <!-- 2. Coming soon -->
+          <article class="mx-auto max-w-2xl">
+            <div class="flex items-center gap-2.5 text-[0.7rem] uppercase tracking-[0.18em] text-[#5f574d]">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-[#A23E0E]" aria-hidden="true"></span>
+              Coming soon
+            </div>
+            <h3 class="mt-4 font-serif text-2xl tracking-tight text-[#1C1A17] sm:text-[1.75rem]">
+              Maker Operator
+            </h3>
+            <p class="mt-4 text-base leading-7 text-[#312d27]">
+              Cross-platform fee math when you sell on Etsy plus Shopify plus Amazon Handmade. Bulk order import, year-over-year analysis, refund accounting, multi-shop, margin alerts.
+            </p>
+            <p class="mt-4 text-sm text-[#74695d]">
+              Subscribers see launch pricing first.
+            </p>
+          </article>
+
+          <!-- 3. In the works -->
+          <article class="mx-auto max-w-2xl">
+            <div class="flex items-center gap-2.5 text-[0.7rem] uppercase tracking-[0.18em] text-[#5f574d]">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-[#74695d]" aria-hidden="true"></span>
+              In the works
+            </div>
+            <h3 class="mt-4 font-serif text-2xl tracking-tight text-[#1C1A17] sm:text-[1.75rem]">
+              More to follow
+            </h3>
+            <p class="mt-4 text-base leading-7 text-[#312d27]">
+              Listing-level cost tracking. Photo and material amortization. Holiday tax tools. The shortlist comes from questions sellers send back.
+            </p>
+          </article>
         </div>
       </section>
     </main>
 
-    <footer class="px-6 pb-10 text-center text-sm text-[#74695d]">
+    <footer class="px-6 pb-10 text-center text-xs text-[#74695d]">
       <p>
-        © 2026 Maker Margin · Made in Miami ·
+        &copy; 2026 Maker Margin - Made in Miami -
         <a class="underline decoration-[#A23E0E]/40 underline-offset-4 hover:text-[#A23E0E]" href="/privacy">
-          Privacy policy
+          Privacy
         </a>
       </p>
     </footer>
+
+    <script is:inline>
+      (function () {
+        var form = document.getElementById("subscribe-form");
+        var thanks = document.getElementById("subscribe-thanks");
+        if (!form || !thanks) return;
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var data = new FormData(form);
+          try {
+            fetch(form.action, {
+              method: "POST",
+              mode: "no-cors",
+              body: new URLSearchParams(data),
+            }).catch(function () {});
+          } catch (err) {
+            /* ignored */
+          }
+          form.hidden = true;
+          thanks.hidden = false;
+        });
+      })();
+    </script>
   </body>
 </html>
