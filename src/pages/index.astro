@@ -27,7 +27,7 @@ const calculatorUrl = "/etsy-fee-calculator/";
     <title>Maker Margin - Plain-language tools for Etsy sellers</title>
   </head>
   <body class="min-h-screen bg-[#F4ECDD] text-[#1C1A17] antialiased selection:bg-[#A23E0E]/15">
-    <header class="mx-auto w-full max-w-3xl px-6 pt-8">
+    <header class="mx-auto flex w-full max-w-3xl items-center justify-between gap-4 px-6 pt-8">
       <a href="/" class="inline-flex items-center gap-3" aria-label="Maker Margin home">
         <img
           src="/monogram.svg"
@@ -39,6 +39,14 @@ const calculatorUrl = "/etsy-fee-calculator/";
         />
         <span class="font-serif text-xl tracking-tight text-[#1C1A17]">Maker Margin</span>
       </a>
+      <nav aria-label="Main navigation">
+        <a
+          href={calculatorUrl}
+          class="inline-flex min-h-10 items-center justify-center rounded-full border border-[#1C1A17]/20 px-4 text-sm font-semibold text-[#1C1A17] transition hover:border-[#1C1A17] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1C1A17] focus-visible:ring-offset-4 focus-visible:ring-offset-[#F4ECDD]"
+        >
+          Etsy fee calculator
+        </a>
+      </nav>
     </header>
 
     <main class="mx-auto w-full max-w-3xl px-6">
@@ -176,6 +184,16 @@ const calculatorUrl = "/etsy-fee-calculator/";
         &copy; 2026 Maker Margin - Made in Miami -
         <a class="underline decoration-[#A23E0E]/40 underline-offset-4 hover:text-[#A23E0E]" href="/privacy">
           Privacy
+        </a>
+      </p>
+      <p class="mt-2">
+        Built by David Russell &mdash;
+        <a
+          class="underline decoration-[#A23E0E]/40 underline-offset-4 hover:text-[#A23E0E]"
+          href="https://davidrussell.co"
+          rel="me"
+        >
+          davidrussell.co
         </a>
       </p>
     </footer>

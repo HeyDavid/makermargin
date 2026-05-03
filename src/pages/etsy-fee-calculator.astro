@@ -34,14 +34,22 @@ const etsyUrl = "https://www.etsy.com/listing/4496371225";
         <img src="/monogram.svg" alt="" class="h-9 w-9" width="36" height="36" aria-hidden="true" />
         <span class="font-serif text-xl tracking-tight">Maker Margin</span>
       </a>
-      <a
-        href={etsyUrl}
-        target="_blank"
-        rel="noreferrer"
-        class="hidden min-h-10 items-center justify-center rounded-full border border-[#1C1A17]/20 px-4 text-sm font-semibold text-[#1C1A17] transition hover:border-[#1C1A17] sm:inline-flex"
-      >
-        Get the xlsx
-      </a>
+      <nav class="flex items-center gap-3" aria-label="Calculator navigation">
+        <a
+          href="/"
+          class="hidden min-h-10 items-center justify-center rounded-full border border-[#1C1A17]/15 px-4 text-sm font-semibold text-[#1C1A17] transition hover:border-[#1C1A17] sm:inline-flex"
+        >
+          Home
+        </a>
+        <a
+          href={etsyUrl}
+          target="_blank"
+          rel="noreferrer"
+          class="hidden min-h-10 items-center justify-center rounded-full border border-[#1C1A17]/20 px-4 text-sm font-semibold text-[#1C1A17] transition hover:border-[#1C1A17] sm:inline-flex"
+        >
+          Get the xlsx
+        </a>
+      </nav>
     </header>
 
     <main class="mx-auto w-full max-w-6xl px-5 pb-16 pt-14 sm:px-6 sm:pb-20 sm:pt-20">
@@ -196,6 +204,19 @@ const etsyUrl = "https://www.etsy.com/listing/4496371225";
         Estimates only. Fee assumptions follow the standalone Maker Margin calculator and exclude regulatory operating fees, Etsy Plus, VAT, and other account-specific charges.
       </p>
     </main>
+
+    <footer class="px-6 pb-10 text-center text-xs text-[#74695d]">
+      <p>
+        Built by David Russell &mdash;
+        <a
+          class="underline decoration-[#A23E0E]/40 underline-offset-4 hover:text-[#A23E0E]"
+          href="https://davidrussell.co"
+          rel="me"
+        >
+          davidrussell.co
+        </a>
+      </p>
+    </footer>
 
     <script is:inline>
       (function () {
