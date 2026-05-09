@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 
-const homepageFormId = "46acb75b-af23-4254-a0c6-5ec460076c9a";
+const beehiivFormUrl = "https://subscribe-forms.beehiiv.com/46acb75b-af23-4254-a0c6-5ec460076c9a";
 const etsyUrl = "https://www.etsy.com/listing/4496371225";
 ---
 
@@ -24,6 +24,7 @@ const etsyUrl = "https://www.etsy.com/listing/4496371225";
     <meta property="og:image" content="/og-image.png" />
     <meta property="og:url" content="https://makermargin.co/etsy-fee-calculator/" />
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://heydavid.github.io/maker-margin-calculator/" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon_32.png" />
     <link rel="icon" type="image/png" sizes="64x64" href="/favicon_64.png" />
     <title>Maker Margin - Etsy fee calculator</title>
@@ -187,14 +188,48 @@ const etsyUrl = "https://www.etsy.com/listing/4496371225";
         <p class="mx-auto mt-3 max-w-lg text-base leading-7 text-[#5f574d]">
           Same Maker Margin list as the homepage. New tools, Etsy fee notes, and launch pricing when Maker Operator is ready.
         </p>
-        <div class="mx-auto mt-6 max-w-md">
-          <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form={homepageFormId}></script>
-        </div>
+        <form
+          id="subscribe-form"
+          action={beehiivFormUrl}
+          method="post"
+          class="mx-auto mt-6 flex w-full max-w-md flex-col gap-3 sm:flex-row"
+        >
+          <label class="sr-only" for="subscribe-email">Email address</label>
+          <input
+            id="subscribe-email"
+            type="email"
+            name="email"
+            required
+            placeholder="you@email.com"
+            autocomplete="email"
+            class="min-h-12 flex-1 rounded-full bg-[#fff8ef] px-5 text-base text-[#1C1A17] placeholder-[#9b8f7f] outline-none ring-1 ring-inset ring-[#d7c8b1] transition focus:ring-2 focus:ring-[#1C1A17]"
+          />
+          <button
+            type="submit"
+            class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#1C1A17] px-7 text-sm font-semibold text-[#FFF8EF] transition hover:bg-[#3a342c] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1C1A17] focus-visible:ring-offset-4 focus-visible:ring-offset-[#fbf4e9]"
+          >
+            Subscribe
+          </button>
+        </form>
+        <p id="subscribe-thanks" hidden class="mt-5 text-sm text-[#1C1A17]">
+          Thanks. You're in. Check your inbox in a minute.
+        </p>
       </section>
 
       <p class="mx-auto mt-8 max-w-3xl text-center text-xs leading-5 text-[#74695d]">
         Estimates only. Fee assumptions follow the standalone Maker Margin calculator and exclude regulatory operating fees, Etsy Plus, VAT, and other account-specific charges.
       </p>
+
+      <footer class="mt-10 text-center text-xs text-[#74695d]">
+        Built by
+        <a class="underline decoration-[#A23E0E]/40 underline-offset-4 hover:text-[#A23E0E]" href="https://davidrussell.co">
+          David Russell
+        </a>
+        -
+        <a class="underline decoration-[#A23E0E]/40 underline-offset-4 hover:text-[#A23E0E]" href="https://davidrussell.co">
+          davidrussell.co
+        </a>
+      </footer>
     </main>
 
     <script is:inline>
@@ -204,6 +239,8 @@ const etsyUrl = "https://www.etsy.com/listing/4496371225";
         const offsiteToggle = document.getElementById("offsite-ads");
         const offsiteWrap = document.getElementById("offsite-rate-wrap");
         const offsiteRow = document.getElementById("r-offsite-row");
+        const subscribeForm = document.getElementById("subscribe-form");
+        const subscribeThanks = document.getElementById("subscribe-thanks");
 
         const fmt = (n) => {
           if (!Number.isFinite(n)) return "$0.00";
@@ -233,7 +270,7 @@ const etsyUrl = "https://www.etsy.com/listing/4496371225";
           const totalFees = listingFee + transactionFee + paymentFee + offsiteFee;
           const yourCosts = shipCost + materials;
           const net = buyerPays - totalFees - yourCosts;
-          const margin = buyerPays > 0 ? (net / buyerPays) * 100 : 0;
+          const margin = price > 0 ? (net / buyerPays) * 100 : 0;
           const totalRatePct = 0.065 + 0.03 + (offsiteOn ? offsiteRate : 0);
           const breakeven = (0.45 + shipCost + materials) / (1 - totalRatePct) - shipCharged;
 
@@ -263,6 +300,22 @@ const etsyUrl = "https://www.etsy.com/listing/4496371225";
           offsiteRow?.classList.toggle("hidden", !offsiteToggle.checked);
           offsiteRow?.classList.toggle("flex", offsiteToggle.checked);
           calc();
+        });
+
+        subscribeForm?.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const data = new FormData(subscribeForm);
+          try {
+            fetch(subscribeForm.action, {
+              method: "POST",
+              mode: "no-cors",
+              body: new URLSearchParams(data),
+            }).catch(() => {});
+          } catch (err) {
+            /* ignored */
+          }
+          subscribeForm.hidden = true;
+          if (subscribeThanks) subscribeThanks.hidden = false;
         });
 
         calc();
